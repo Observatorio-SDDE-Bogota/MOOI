@@ -32,6 +32,8 @@ import Fun_triage as triage
 def triage(nombre_programa, df_tropa, features, features_cont, features_cat, mice_imputer, famd):   
     print(fontstyle.apply('Programa: ' + nombre_programa, 'bold/Italic/black/WHITE_BG'))
     
+    np.random.seed(0)
+
     # %% Dejar solo los registros que cumplen con los criterios del programa utilizando los diccionarios criterios_dict y tipo_dict
     criterios = cp.criterios_dict.get(nombre_programa)
     tipo_exclusion = cp.tipo_dict.get(nombre_programa)
@@ -92,15 +94,7 @@ def triage(nombre_programa, df_tropa, features, features_cont, features_cat, mic
     mapping2 = {}
     K = range(1, 10)
     rc = df_famd.row_coordinates(x)
-  
-    print('df_famd')
-    display(df_famd)      
-          
-    print('prueba x')
-    display(x['INGRESOS'].sum())
-    
-    print('prueba rc')
-    display(rc)
+ 
     
     for k in K:
     # Building and fitting the model
